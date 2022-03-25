@@ -1,0 +1,13 @@
+Zadanie 4
+
+Niech naszym stanem będzie (v, x) gdzie v to wierzchołek a x to ilość paliwa w baku. Teraz będąc w
+(v, x) znajdźmy stacje do których możemy dojechać z paliwem x oraz, jeśli damy radę, wierzchołek docelowy. Gdy już takie
+znajdziemy policzmy ich zwykłą odległość do wierzchołka docelowego. Wtedy wynikiem będzie minimum z odległości do stacji
+paliw do których możemy dojść z paliwem x + ich odległość do wierzchołka docelowego).
+Możemy zoptymalizować obliczanie biorąc po kolei stany od najmniejszego do największego x.
+Przykładowo:
+Z wierzchołka v puszczamy dijkstrę i zapamiętujemy wyniki.
+Jeśli policzyliśmy wynik dla stanu (v, 9) i chcemy policzyć dla (v, 10) możemy od razu wziąć już wynik (v, 9) (bo jeśli
+dotarliśmy do tamtych stacji z paliwem 9 to z paliwem 10 tym bardziej) i porównać z wynikami stacji do których koszt
+dojścia był równy 10.
+Aby szybko znaleźć wierzchołki stacyjne o danym wyniku możemy użyć jakiejść struktury do ich zapamiętywanie (np. mapa)

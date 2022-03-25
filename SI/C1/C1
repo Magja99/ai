@@ -1,0 +1,28 @@
+Z7
+Zakładamy że h jest spójna.
+
+h(x) to hełra dla stanu x, a s(x, y) to koszt przejścia z x do y.
+
+h(x) <= s(x, y) + h(y) to spójność. Aby pokazać że heura jest optymistyczna to h(x) <= h*(x) gdzie h*x(x) to rzeczywisty wynik;
+
+Załóżmy że nie ma ścieżki z x do celu. Wtedy h*(x) to nieskończoność, więc zachodzi h(x) <= h*(x).
+
+Załóżmy że ścieżka jest i jest ona w postaci (x, w1, w2, … wn, g). Popatrzmy na h(wn).
+h jest spójna więc h(wn) <= s(wn, g) + h(g) = s(wn, g) bo h(g) = 0. Więc h(wn-1) <= s(wn-1, wn) + h(wn) <= s(wn-1, wn) + s(wn).
+Z indukcji po n dostajemy h(wk) <= s(wk, wk+1) + … + s(wn-1, wn) + s(wn, g)
+(x, w1, w2, … wn, g) to najkrótsza ścieżka, h*(wk) = s(wk, wk+1) + … + s(wn-1, wn) + s(wn, g) więc h*(wk) >= h(wk)
+
+
+Graf:
+
+  1 - 2
+     /
+    3
+
+
+1 2 1
+2 3 3
+
+h(1) = 4
+h(2) = 2
+h(3) = 0
